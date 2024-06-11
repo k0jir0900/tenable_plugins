@@ -62,13 +62,6 @@ while True:
 # Check if any files were downloaded
 if filenames:
     # Construct the cat and jq command to process the JSON files with a header
-#    cat_command = (
-#        f'echo "id,name,has_patch,exploit_available,risk_factor,cve" > {csv_filename} && '
-#        'cat ' + ' '.join(filenames) + " | jq -r '.data.plugin_details[] | "
-#        '{id: .id, name: .name, has_patch: (.attributes.has_patch), exploit_available: (.attributes.exploit_available), risk_factor: (.attributes.risk_factor), cve: (.attributes.cve[] // "")} '
-#        '| [.id, .name, .has_patch, .exploit_available, .risk_factor, .cve] | @csv\' >> {csv_filename}'
-#    )
-
     cat_command = (
         f'echo "id,name,has_patch,exploit_available,risk_factor,cve" > {csv_filename} && '
         'cat ' + ' '.join(filenames) + " | jq -r '.data.plugin_details[] | "
